@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import static org.junit.gen5.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class VendorTest {
@@ -36,10 +37,30 @@ public class VendorTest {
 
 
     @Test
-    void buyItemTest() {
+    void buyItemTestAtZeroBalance() {
         Vendor v = new Vendor (2,5);
+        v.addMoney(1.25);
         v.select("Candy");
-        assertEquals("Candy", v.getBalance());
+        assertEquals(0, v.getBalance());
+
+        //Candy = 1.25
+        //Gum = 0.5
+    }
+
+    @Test
+    void buyItemTestAtPositiveBalance() {
+        Vendor v = new Vendor (2,5);
+        v.addMoney(5);
+        v.select("Candy");
+        assertEquals(3.75, v.getBalance());
+    }
+
+    @Test
+    void buyItemTestAtNegativeBalance() {
+        Vendor v = new Vendor (2,5);
+        v.addMoney(0);
+        v.select("Candy");
+        assertEquals(0, v.getBalance());
     }
 
 }

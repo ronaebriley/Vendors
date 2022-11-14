@@ -24,6 +24,7 @@ public class ExtraTests {
     // Write a test that adds a random value to balance
     //check that the balance is updated properly
     @RepeatedTest(5)
+    @DisplayName("RandomBalance")
     void addRandomBalanceTester(){
         Random rand = new Random();
         int randomNum = rand.nextInt(101);

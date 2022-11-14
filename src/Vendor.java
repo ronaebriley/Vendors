@@ -51,12 +51,11 @@ class Vendor {
     void select (String name) {
         if (Stock.containsKey(name)) {
             Item item = Stock.get(name);
-            if (balance >= item.price) {
-                item.purchase(1);
-                this.balance = this.balance - item.price;
-            }
-            else
-                System.out.println("Gimme more money");
+                if (balance >= item.price) {
+                    item.purchase(1);
+                    this.balance = this.balance - item.price;
+                } else
+                    System.out.println("Gimme more money");
         }
         else System.out.println("Sorry, don't know that item");
     }
