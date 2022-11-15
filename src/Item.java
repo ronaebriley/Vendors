@@ -8,19 +8,25 @@ class Item {
     }
 
     /** returns the number of items */
-    double getNumPieces () {
+    double getNumPieces() {
         return this.stock;
     }
 
     void restock(int amount) {
-        if (amount >= this.stock) {
+        if (amount >= 0) {
             this.stock = this.stock + amount;
         } else {
             this.stock = this.stock;
+            System.out.println("Sorry, try restocking a different amount.");
         }
     }
 
     void purchase(int amount) {
-        this.stock = this.stock - amount;
+        if (amount <= this.stock && amount >= 0 ) {
+            this.stock = this.stock - amount;
+        }else{
+            this.stock = this.stock;
+            System.out.println("Sorry, try purchasing a different amount.");
+        }
     }
 }

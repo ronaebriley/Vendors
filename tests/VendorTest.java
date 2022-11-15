@@ -63,6 +63,26 @@ public class VendorTest {
         assertEquals(0, v.getBalance());
     }
     @Test
+    void buyItemPositiveTest2() {
+        Item i = new Item (2,5);
+        i.purchase(5);
+        assertEquals(0, i.getNumPieces());
+    }
+    @Test
+    void buyItemNegativeTest2() {
+        Item i = new Item (2,5);
+        i.purchase(-1);
+        assertEquals(5, i.getNumPieces());
+    }
+
+    @Test
+    void buyItemZeroTest2() {
+        Item i = new Item (2,5);
+        i.purchase(0);
+        assertEquals(5, i.getNumPieces());
+    }
+
+    @Test
     void restockItemAtPositiveAmountTest() {
         Item i = new Item(2,5);
         i.restock(5);
