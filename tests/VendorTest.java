@@ -110,5 +110,41 @@ public class VendorTest {
         assertEquals(5, i.getNumPieces());
     }
 
+    @Test
+    void restockAndBuyZeroTest() {
+        Item i = new Item(2,5);
+        Vendor v = new Vendor (2, 5);
+        i.restock(4);
+        i.purchase(9);
+        assertEquals(0, i.getNumPieces());
+    }
+
+    @Test
+    void restockAndBuyPositiveTest() {
+        Item i = new Item(2,5);
+        Vendor v = new Vendor (2, 5);
+        i.restock(4);
+        i.purchase(4);
+        assertEquals(5, i.getNumPieces());
+    }
+
+    @Test
+    void restockAndBuyNegativeTest() {
+        Item i = new Item(2,5);
+        Vendor v = new Vendor (2, 5);
+        i.restock(4);
+        i.purchase(10);
+        assertEquals(9, i.getNumPieces());
+    }
+
+    @Test
+    void restockAndBuyNegativeTest2() {
+        Item i = new Item(2,5);
+        Vendor v = new Vendor (2, 5);
+        i.restock(4);
+        i.purchase(-1);
+        assertEquals(9, i.getNumPieces());
+    }
+
 
 }
