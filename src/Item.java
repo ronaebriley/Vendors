@@ -7,8 +7,17 @@ class Item {
         this.stock = numPieces;
     }
 
+    /** returns the number of items */
+    double getNumPieces () {
+        return this.stock;
+    }
+
     void restock(int amount) {
-        this.stock = this.stock + amount;
+        if (amount >= this.stock) {
+            this.stock = this.stock + amount;
+        } else {
+            this.stock = this.stock;
+        }
     }
 
     void purchase(int amount) {

@@ -8,6 +8,7 @@ import java.util.HashMap;
 class Vendor {
     private static HashMap<String, Item> Stock = new HashMap<String,Item>();
     private double balance;
+    private int amount;
 
     Vendor(int numCandy, int numGum) {
         Stock.put("Candy", new Item(1.25, numCandy));
@@ -42,6 +43,7 @@ class Vendor {
             this.balance = this.balance + amt;
         }
     }
+
 
     /** attempt to purchase named item.  Message returned if
      * the balance isn't sufficient to cover the item cost.

@@ -20,14 +20,14 @@ public class VendorTest {
     }
 
     @Test
-    void addZeroTest() {
+    void addZeroDollarsTest() {
         Vendor v = new Vendor (2,5);
         v.addMoney(0);
         assertEquals(0, v.getBalance());
     }
 
     @Test
-    void addNegativeTestInitialPositive() {
+    void addNegativeTestInitialPositiveTest() {
         Vendor v = new Vendor(2, 5);
         v.addMoney(20);
         v.addMoney(-10);
@@ -37,7 +37,7 @@ public class VendorTest {
 
 
     @Test
-    void buyItemTestAtZeroBalance() {
+    void buyItemAtZeroBalanceTest() {
         Vendor v = new Vendor (2,5);
         v.addMoney(1.25);
         v.select("Candy");
@@ -48,7 +48,7 @@ public class VendorTest {
     }
 
     @Test
-    void buyItemTestAtPositiveBalance() {
+    void buyItemAtPositiveBalanceTest() {
         Vendor v = new Vendor (2,5);
         v.addMoney(5);
         v.select("Candy");
@@ -56,11 +56,39 @@ public class VendorTest {
     }
 
     @Test
-    void buyItemTestAtNegativeBalance() {
+    void buyItemAtNegativeBalanceTest() {
         Vendor v = new Vendor (2,5);
         v.addMoney(0);
         v.select("Candy");
         assertEquals(0, v.getBalance());
     }
+    @Test
+    void restockItemAtPositiveAmountTest() {
+        Item i = new Item(2,5);
+        i.restock(5);
+        assertEquals(10, i.getNumPieces());
+    }
+
+    @Test
+    void restockItemAtZeroAmountTest() {
+        Item i = new Item(2,5);
+        i.restock(0);
+        assertEquals(5, i.getNumPieces());
+    }
+
+    @Test
+    void restockItemAtStartZeroAmountTest() {
+        Item i = new Item(2,0);
+        i.restock(6);
+        assertEquals(6, i.getNumPieces());
+    }
+
+    @Test
+    void restockItemNegativeAmountTest() {
+        Item i = new Item(2,5);
+        i.restock(-6);
+        assertEquals(5, i.getNumPieces());
+    }
+
 
 }
