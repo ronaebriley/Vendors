@@ -122,6 +122,45 @@ class Vendor {
         return null;
     }
 
+    /**  manages and prints the inventory
+     of 5 different vendors */
+    void printVendorInfo(){
+        Vendor v1 = new Vendor(1, 1);
+        System.out.println("Vendor 1 has " + v1.getAmount() + " items in its iventory");
+        for(Entry<String, Item> entry: Stock.entrySet()) {
+            System.out.println(entry.getKey());
+        }
+        System.out.println();
+        Vendor v2 = new Vendor(2, 2);
+        System.out.println("Vendor 2 has " + v1.getAmount() + " items in its iventory");
+        for(Entry<String, Item> entry: Stock.entrySet()) {
+            System.out.println(entry.getKey());
+        }
+        System.out.println();
+
+        Vendor v3 = new Vendor(3, 3);
+        System.out.println("Vendor 3 has " + v1.getAmount() + " items in its iventory");
+        for(Entry<String, Item> entry: Stock.entrySet()) {
+            System.out.println(entry.getKey());
+        }
+        System.out.println();
+
+        Vendor v4 = new Vendor(4, 4);
+        System.out.println("Vendor  has " + v1.getAmount() + " items in its iventory");
+        for(Entry<String, Item> entry: Stock.entrySet()) {
+            System.out.println(entry.getKey());
+        }
+        System.out.println();
+
+        Vendor v5 = new Vendor(5, 5);
+        System.out.println("Vendor 5 has " + v1.getAmount() + " items in its iventory");
+        for(Entry<String, Item> entry: Stock.entrySet()) {
+            System.out.println(entry.getKey());
+        }
+        System.out.println();
+
+    }
+
 
 }
 

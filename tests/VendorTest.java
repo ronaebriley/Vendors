@@ -1,6 +1,8 @@
+import org.junit.jupiter.api.*;
+import java.util.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.gen5.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class VendorTest {
@@ -191,5 +193,27 @@ public class VendorTest {
         assertEquals("Candy", v.checksItemName());
     }
 
+    @Test
+    void print5VendorInfo(){
+        Vendor v = new Vendor (2,2);
+        v.printVendorInfo();
+        //assertEquals(randomNum, v.getBalance());
+    }
+    @Test
+    void printRandomVendorInfo(){
+        Random rand = new Random();
+        int randomNum = rand.nextInt(101);
+        Vendor v = new Vendor (randomNum,randomNum);
+        v.printVendorInfo();
+        //assertEquals(randomNum, v.getBalance());
+    }
+
+
+    @Test
+    void printVendorInfo3(){
+        Vendor v = new Vendor (0,0);
+        v.printVendorInfo();
+        //assertEquals(randomNum, v.getBalance());
+    }
 
 }
