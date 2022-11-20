@@ -170,6 +170,26 @@ public class VendorTest {
         v.removesInventory();
         assertEquals(0, v.getAmount());
     }
+    
+    @Test
+    void nameChange1(){
+        Vendor v = new Vendor (2,2);
+        v.changeItemName("Candy", "Twix");
+        assertEquals("Twix", v.checksItemName());
+    }
+    @Test
+    void sameName(){
+        Vendor v = new Vendor (2,2);
+        v.changeItemName("Candy", "Candy");
+        assertEquals("Candy", v.checksItemName());
+    }
+
+    @Test
+    void nameChangeToNumbers(){
+        Vendor v = new Vendor (2,2);
+        v.changeItemName("Candy", "123Snickers");
+        assertEquals("Candy", v.checksItemName());
+    }
 
 
 }

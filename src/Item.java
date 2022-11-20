@@ -8,8 +8,13 @@ class Item {
     }
 
     /** returns the number of items */
-    double getNumPieces() {
+    int getNumPieces() {
         return this.stock;
+    }
+
+    /** returns the price of an item */
+    double getPrice() {
+        return this.price;
     }
 
     void restock(int amount) {

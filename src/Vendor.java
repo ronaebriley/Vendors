@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Map.*;
 
 
 /**
@@ -61,7 +62,7 @@ class Vendor {
     }
 
     /** Gets number of items in inventory */
-    double getAmount() {
+    int getAmount() {
         return this.amount;
 
     }
@@ -100,10 +101,27 @@ class Vendor {
         else System.out.println("Sorry, don't know that item");
     }
 
-    void changeItemName(String name, double price, int numPieces){
-        Stock.put(name,new Item(price, numPieces));
-        Stock.get(name);
+    /** Changes item name */
+    void changeItemName(String oldName, String newName){
+        if (oldName != newName & !newName.contains("0") & !newName.contains("1") & !newName.contains("2") & !newName.contains("3") & !newName.contains("4") & !newName.contains("5") & !newName.contains("6") & !newName.contains("7") & !newName.contains("8") & !newName.contains("9") & !newName.contains("0")) {
+            Item i = Stock.get(oldName);
+            Stock.put(newName, new Item(i.getPrice(), i.getNumPieces()));
+        } else {
+
+        }
     }
+
+    /** Checks item name */
+    String checksItemName(){
+        //return Stock.getKey();
+        String r;
+        for(Entry<String, Item> entry: Stock.entrySet()) {
+            return entry.getKey();
+                //break;
+        }
+        return null;
+    }
+
 
 }
 
