@@ -22,10 +22,48 @@ class Vendor {
         this.balance = initial;
     }
 
+    /*
+    Vendor(String name, int num) {
+        Stock.put("Candy");
+        Stock.put("Gum");
+        Stock.put()
+    }
+     */
 
     /** resets the Balance to 0 */
     void resetBalance () {
         this.balance = 0;
+    }
+
+    /** Adds to inventory */
+    void addToInventory () {
+        //Item i = new Item(1.0, 0);
+        //Vendor v = new Vendor (1,1);
+        this.amount = 1;
+    }
+
+    /** Removes one item from inventory */
+    void removesInventory () {
+        //Item i = new Item(1.0, 0);
+        //Vendor v = new Vendor (1,1);
+        if (amount > 0) {
+            this.amount = -1;
+        } else {
+            System.out.println("Sorry, there is nothing in inventory.");
+        }
+    }
+
+    /** Empties inventory */
+    void emptyInventory () {
+        //Vendor v = new Vendor();
+        this.amount = 0;
+
+    }
+
+    /** Gets number of items in inventory */
+    double getAmount() {
+        return this.amount;
+
     }
 
     /** returns the current balance */
@@ -60,6 +98,11 @@ class Vendor {
                     System.out.println("Gimme more money");
         }
         else System.out.println("Sorry, don't know that item");
+    }
+
+    void changeItemName(String name, double price, int numPieces){
+        Stock.put(name,new Item(price, numPieces));
+        Stock.get(name);
     }
 
 }

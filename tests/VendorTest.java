@@ -146,5 +146,30 @@ public class VendorTest {
         assertEquals(9, i.getNumPieces());
     }
 
+    @Test
+    void emptyToZero(){
+        Vendor v = new Vendor(2,2);
+        v.emptyInventory();
+        assertEquals(0, v.getAmount());
+    }
+
+    @Test
+    void emptyThenAddPositive(){
+        Vendor v = new Vendor(2,2);
+        v.emptyInventory();
+        //v.select("Gum");
+        v.addToInventory();
+        //v.addMoney(5);
+        assertEquals(1, v.getAmount());
+    }
+
+    @Test
+    void emptyThenNegativeInventory(){
+        Vendor v = new Vendor(2,2);
+        v.emptyInventory();
+        v.removesInventory();
+        assertEquals(0, v.getAmount());
+    }
+
 
 }
